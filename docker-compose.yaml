@@ -1,0 +1,41 @@
+version: '3'
+networks:
+  infra_chatbot:
+    external: true
+  
+services:
+  mariadb:
+    image: mariadb:10.5.12
+    networks:
+      - infra_chatbot
+    restart: always
+    ports:
+      - "3306:3306"
+    logging:
+        driver: "json-file"
+        options:
+          max-file: "5"
+          max-size: "10m"
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      TZ: Asia/Seoul
+    env_file:
+      - .env
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.1.1
+    restart: always
+    networks:
+      - infra_chatbot
+    ports:
+      - "9876:80"
+    env_file:
+      - .env
+    depends_on:
+      - mariadb
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+    
