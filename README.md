@@ -22,6 +22,9 @@ Python == `3.9.1`
 ```
 source db-env/bin/activate
 pytest
+
+# With print function
+pytest -s
 ```
 
 - Export requirements list
