@@ -13,4 +13,7 @@ def test_add_new_user(normal_session):
     normal_session.execute('CALL api_to_web_insert_user(:ugid, :name, :id, :pw, :phone, :email, :profileImg, @result, @msg)', 
         {'ugid': _ugid, 'name': _name, 'id': _id, 'pw': _pw, 'phone': _phone, 'email': _email, 'profileImg': _profileImg})
     spResult = normal_session.execute('SELECT @result, @msg').fetchone()
+    if spResult[0] != 1:
+        print('Msg', spResult[1])
+
     assert spResult[0] == 1
