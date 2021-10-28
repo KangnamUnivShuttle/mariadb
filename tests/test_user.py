@@ -3,9 +3,9 @@ import pytest
 @pytest.mark.run(order=2)
 def test_add_new_user(normal_session):
     _ugid = 1
-    _name = 'test user'
+    _name = 'testuser'
     _id = 'testuserID'
-    _pw = '!@09qwer1234'
+    _pw = '@4jJ!J6?<quy!9}8'
     _phone = '000-0000-0000'
     _email = 'test@example.com'
     _profileImg = 'https://example.com/test.jpg'
