@@ -5,7 +5,8 @@ networks:
   
 services:
   mariadb:
-    image: mariadb:10.5.12
+    image: mariadb_conf
+    build: ./
     networks:
       - infra_chatbot
     restart: always

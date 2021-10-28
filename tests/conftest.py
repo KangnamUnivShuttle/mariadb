@@ -16,6 +16,14 @@ def db_engine():
     engine.dispose()
 
 @pytest.fixture(scope='function')
+def normal_session(db_engine):
+    Session = sessionmaker()
+    Session.configure(bind=db_engine)
+    session = Session()
+    yield session
+    session.close()
+
+@pytest.fixture(scope='function')
 def rollback_session(db_engine):
     Session = sessionmaker()
     Session.configure(bind=db_engine)
