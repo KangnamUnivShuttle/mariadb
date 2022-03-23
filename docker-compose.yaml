@@ -6,6 +6,7 @@ networks:
 services:
   mariadb:
     image: mariadb_conf
+    container_name: mariadb_container
     build: ./
     networks:
       - infra_chatbot
@@ -25,6 +26,7 @@ services:
       - .env
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.1.1
+    container_name: phpmyadmin_container
     restart: always
     networks:
       - infra_chatbot
