@@ -12,7 +12,7 @@ services:
       - infra_chatbot
     restart: always
     ports:
-      - "6006:3306"
+      - "8080:3306"
     logging:
         driver: "json-file"
         options:
